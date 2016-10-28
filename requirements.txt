@@ -1,0 +1,6 @@
+--no-index
+--find-links vendor/
+
+PyQt5==5.7
+savings==0.0.1
+sip==4.18.1
