@@ -1,13 +1,14 @@
 import sys
 from typing import Callable
 
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QDesktopWidget
-from PyQt5.QtWidgets import QGridLayout
-from PyQt5.QtWidgets import QLabel
-from PyQt5.QtWidgets import QLineEdit
-from PyQt5.QtWidgets import QPushButton
-from PyQt5.QtWidgets import QWidget
+
+from PyQt6 import QtGui
+from PyQt6.QtWidgets import QApplication
+from PyQt6.QtWidgets import QGridLayout
+from PyQt6.QtWidgets import QLabel
+from PyQt6.QtWidgets import QLineEdit
+from PyQt6.QtWidgets import QPushButton
+from PyQt6.QtWidgets import QWidget
 from savings import PresentRequiredEarningsObserver
 from savings import SavingsObserver
 
@@ -27,7 +28,8 @@ class QtSavingsObserver(SavingsObserver):
                                                                               PresentRequiredEarningsObserver],
                                                                              None]):
         qt_application = QApplication(sys.argv)
-        desktop_center = QDesktopWidget().availableGeometry().center()
+        screen_center = QtGui.QGuiApplication.primaryScreen().availableGeometry().center()
+
 
         main_window = QWidget()
 
@@ -74,6 +76,6 @@ class QtSavingsObserver(SavingsObserver):
         main_window.setWindowTitle('Buttons')
 
         widget_frame_geometry = main_window.frameGeometry()
-        widget_frame_geometry.moveCenter(desktop_center)
+        widget_frame_geometry.moveCenter(screen_center)
         main_window.show()
-        sys.exit(qt_application.exec_())
+        sys.exit(qt_application.exec())

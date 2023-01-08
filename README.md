@@ -1,11 +1,12 @@
-# PyQt5 Post-Tax Savings Calculator
+# PyQt6 Post-Tax Savings Calculator
+
+Currently only works on OS X
 
 ## Setup
 ```
-virtualenv env -p python3
+python -m venv env
 source env/bin/activate
-pip install --upgrade pip wheel
-pip install -r requirements.txt
+pip install -r pypi-requirements.txt -r vendored-requirements.txt
 ```
 
 ## Run app
